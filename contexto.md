@@ -29,3 +29,4 @@ Generar todos los fragmentos consecutivos de longitud k (k-mers) a partir de una
 3. Recorrer la secuencia desde la posición 0 hasta len(seq) - k.
 4. En cada posición, extraer un fragmento de longitud k.
 5. Mostrar el k-mer generado.
+6. Se evaluara cada k-mer para determinar cuál tiene mayor contenido GC.

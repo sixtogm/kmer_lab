@@ -10,12 +10,31 @@ if not seq:
 
 # 2. Leer el valor de k
 k = int(input("valor de k (int): "))
+# (se inicializa best_sum_gc para la comparacion de mas adelante)
+best_sum_gc= 0
 
 # 3. Recorrer la secuencia con una ventana de tamaño k
 for i in range(len(seq) - k + 1):
 
     # 4. Extraer el k-mer de la posición actual
     kmer = seq[i:i+k] 
+    count_g = kmer.count("G")
+    count_c = kmer.count("C")
+    sum_gc=(count_c+count_g)
 
-    # 5. Mostrar el k-mer
-    print(f"Posicion {i} -> {kmer}")
+
+    # 5. Mostrar el k-mer y calcular el que tenga la mayor composicion de gc, su posicion y su composicion
+    print(f"Posicion {i} -> {kmer} (GC={sum_gc})")
+    if sum_gc >= best_sum_gc:
+       best_sum_gc=sum_gc
+       best_kmer=kmer
+       bk_position=i
+       print(f"Best so far -> {best_kmer} (GC={best_sum_gc})")
+    else:
+        print(f"Best so far -> {best_kmer} (GC={best_sum_gc})")
+# 6. Mostrar el kmer con mayor GC y su posicion.
+print(f"Final best k-mer: {best_kmer}")
+print(f"Position: {bk_position}")
+print(f"GC count: {best_sum_gc}")
+
+
